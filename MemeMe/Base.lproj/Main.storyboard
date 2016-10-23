@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="H4k-dx-sIl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MemeMe-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,17 +34,15 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fbC-fZ-PUQ"/>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="To8-Nw-MVl" userLabel="topTextField">
-                                <frame key="frameInset" minX="16" minY="54" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fbC-fZ-PUQ">
+                                <color key="backgroundColor" red="0.1829927885" green="0.1829927885" blue="0.1829927885" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fxp-hY-ZRa" userLabel="bottomTextField">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fxp-hY-ZRa" userLabel="bottomTextField">
-                                <frame key="frameInset" minX="16" minY="574" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="To8-Nw-MVl" userLabel="topTextField">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -51,23 +50,55 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fbC-fZ-PUQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="30f-nN-eA2"/>
-                            <constraint firstAttribute="trailing" secondItem="fbC-fZ-PUQ" secondAttribute="trailing" id="CG0-VV-isi"/>
-                            <constraint firstItem="fbC-fZ-PUQ" firstAttribute="trailing" secondItem="ekp-hB-Hzv" secondAttribute="trailing" id="H4F-Ho-TN7"/>
-                            <constraint firstItem="ekp-hB-Hzv" firstAttribute="top" secondItem="fbC-fZ-PUQ" secondAttribute="bottom" id="Nrn-8J-jsh"/>
-                            <constraint firstItem="fbC-fZ-PUQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Q4X-CQ-L7c"/>
-                            <constraint firstItem="ekp-hB-Hzv" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="duF-70-Cu2"/>
-                            <constraint firstItem="fbC-fZ-PUQ" firstAttribute="leading" secondItem="ekp-hB-Hzv" secondAttribute="leading" id="th6-iq-HZ9"/>
+                            <constraint firstItem="ekp-hB-Hzv" firstAttribute="top" secondItem="fbC-fZ-PUQ" secondAttribute="bottom" id="1Ye-Ot-zEj"/>
+                            <constraint firstItem="Fxp-hY-ZRa" firstAttribute="centerX" secondItem="ekp-hB-Hzv" secondAttribute="centerX" id="1gw-Yz-qmi"/>
+                            <constraint firstItem="ekp-hB-Hzv" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="7LC-x6-0pp"/>
+                            <constraint firstItem="To8-Nw-MVl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8to-XF-BKH"/>
+                            <constraint firstItem="fbC-fZ-PUQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="A7O-pZ-OUE"/>
+                            <constraint firstAttribute="trailing" secondItem="fbC-fZ-PUQ" secondAttribute="trailing" id="EM5-o7-A7P"/>
+                            <constraint firstItem="To8-Nw-MVl" firstAttribute="leading" secondItem="Fxp-hY-ZRa" secondAttribute="leading" id="S8x-2y-HlB"/>
+                            <constraint firstItem="ekp-hB-Hzv" firstAttribute="top" secondItem="Fxp-hY-ZRa" secondAttribute="bottom" constant="19" id="bIN-eF-VcA"/>
+                            <constraint firstItem="fbC-fZ-PUQ" firstAttribute="trailing" secondItem="ekp-hB-Hzv" secondAttribute="trailing" id="bJ0-vw-Awz"/>
+                            <constraint firstItem="fbC-fZ-PUQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dO6-uN-0Vs"/>
+                            <constraint firstItem="fbC-fZ-PUQ" firstAttribute="leading" secondItem="ekp-hB-Hzv" secondAttribute="leading" id="e3X-KD-uGa"/>
+                            <constraint firstItem="To8-Nw-MVl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="h54-eU-dZu"/>
+                            <constraint firstItem="To8-Nw-MVl" firstAttribute="trailing" secondItem="Fxp-hY-ZRa" secondAttribute="trailing" id="hGb-zz-Gkg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="MemeMe" id="xsH-oz-UOv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="9KH-VL-zAo">
+                            <connections>
+                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="XeD-aW-Abw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="Fxp-hY-ZRa" id="wKa-f9-eex"/>
                         <outlet property="cameraButton" destination="Fma-Za-tzf" id="g3O-dC-x2I"/>
                         <outlet property="memeImageView" destination="fbC-fZ-PUQ" id="jpN-y7-VVt"/>
+                        <outlet property="shareButton" destination="9KH-VL-zAo" id="bkd-EG-gjf"/>
                         <outlet property="topTextField" destination="To8-Nw-MVl" id="Kcg-sI-VmU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BbR-hF-GAE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H4k-dx-sIl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H2P-22-gr3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2IH-XR-W1P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PTz-qe-9SI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
         </scene>

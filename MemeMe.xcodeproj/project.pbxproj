@@ -15,6 +15,7 @@
 		D9DA278B1DBC36DF004F8C6E /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA278A1DBC36DF004F8C6E /* MemeMeTests.swift */; };
 		D9DA27961DBC36DF004F8C6E /* MemeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA27951DBC36DF004F8C6E /* MemeMeUITests.swift */; };
 		D9DA27A41DBC420C004F8C6E /* MemeTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA27A31DBC420C004F8C6E /* MemeTextDelegate.swift */; };
+		D9DA27A61DBC51BB004F8C6E /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA27A51DBC51BB004F8C6E /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D9DA27951DBC36DF004F8C6E /* MemeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeUITests.swift; sourceTree = "<group>"; };
 		D9DA27971DBC36DF004F8C6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9DA27A31DBC420C004F8C6E /* MemeTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTextDelegate.swift; sourceTree = "<group>"; };
+		D9DA27A51DBC51BB004F8C6E /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D9DA277E1DBC36DF004F8C6E /* LaunchScreen.storyboard */,
 				D9DA27811DBC36DF004F8C6E /* Info.plist */,
 				D9DA27A31DBC420C004F8C6E /* MemeTextDelegate.swift */,
+				D9DA27A51DBC51BB004F8C6E /* Meme.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9DA27781DBC36DF004F8C6E /* ViewController.swift in Sources */,
+				D9DA27A61DBC51BB004F8C6E /* Meme.swift in Sources */,
 				D9DA27A41DBC420C004F8C6E /* MemeTextDelegate.swift in Sources */,
 				D9DA27761DBC36DF004F8C6E /* AppDelegate.swift in Sources */,
 			);

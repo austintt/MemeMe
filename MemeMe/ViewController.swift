@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     let memeTextDelegate = MemeTextDelegate()
     let memeTextAttributes = [
@@ -27,6 +28,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        shareButton.isEnabled = false
         
         // Set delegates for text fields
         self.topTextField.delegate = self.memeTextDelegate
@@ -34,11 +36,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Setup text fields
         topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
         topTextField.text = "FRESHEST"
         topTextField.textAlignment = .center
+        topTextField.backgroundColor = UIColor.clear
+        topTextField.borderStyle = UITextBorderStyle.none
+        bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.text = "MEME"
         bottomTextField.textAlignment = .center
+        bottomTextField.backgroundColor = UIColor.clear
+        bottomTextField.borderStyle = UITextBorderStyle.none
         
     }
     
@@ -93,6 +99,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
         memeImageView.image = image
         memeImageView.contentMode = .scaleAspectFit
+        shareButton.isEnabled = true
             
         } else {
             print("Something went wrong")
@@ -120,8 +127,54 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    // MARK: Memeing
     
+    
+    @IBAction func shareMeme(_ sender: AnyObject) {
+        // Generate meme
+        let memedImage = [generateMemedImage()]
+        
+        // Define ActivityViewController
+        let activityViewController = UIActivityViewController(activityItems: memedImage, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        activityViewController.completionWithItemsHandler = {
+            (s, ok, items, error) in
+            self.save()
+        }
+        
+        // Pass meme to ActivityViewController
+        
+        // Present ActivityViewController
+        self.present(activityViewController, animated: true, completion: nil)
+    
+    }
+    
+    func save() {
+        //Create the meme
+        print("Saving")
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImageView.image!, memedImage: generateMemedImage())
+    }
+    
+    func generateMemedImage() -> UIImage
+    {
+        // TODO: Hide toolbar/navbar
+        
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        // TODO: Show toolbar/navbar
+        
+        return memedImage
+    }
 
+    func completeSharing(activityType:String!, completed:Bool, items:[AnyObject]!, error:NSError!){
+        save()
+        self.dismiss(animated: true, completion: nil)
+    }
 
 }
 
