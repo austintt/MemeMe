@@ -11,6 +11,7 @@ import UIKit
 
 class MemeTextDelegate: NSObject, UITextFieldDelegate{
     
+    
     // Clear text if default
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField.text == "FRESHEST" || textField.text == "MEME") {
