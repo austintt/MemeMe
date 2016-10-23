@@ -39,11 +39,55 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.textAlignment = .center
         bottomTextField.text = "MEME"
         bottomTextField.textAlignment = .center
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // Hide camera button if device doesn't have camera
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
+        
+        // Subscribe to keyboard notification
+        subscribeToKeyboardNotifications()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unsubscribeFromKeyboardNotifications()
+    }
+    
+    // MARK: Keyboard shifting
+    
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if (bottomTextField.isFirstResponder) {
+            view.frame.origin.y =  getKeyboardHeight(notification: notification) * -1
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if (bottomTextField.isFirstResponder) {
+            view.frame.origin.y = 0
+        }
+        
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    
+    
+    // MARK: Getting a photo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
@@ -57,7 +101,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
+        self.dismiss(animated: true, completion: nil)
     }
 
     // Get photo from photo picker
