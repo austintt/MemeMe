@@ -16,6 +16,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    let defaultTopText = "FRESHEST"
+    let defaultBottomText = "MEME"
     
     let memeTextDelegate = MemeTextDelegate()
     let memeTextAttributes = [
@@ -36,12 +38,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // Setup text fields
         topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.text = "FRESHEST"
+        topTextField.text = defaultTopText
         topTextField.textAlignment = .center
         topTextField.backgroundColor = UIColor.clear
         topTextField.borderStyle = UITextBorderStyle.none
         bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.text = "MEME"
+        bottomTextField.text = defaultBottomText
         bottomTextField.textAlignment = .center
         bottomTextField.backgroundColor = UIColor.clear
         bottomTextField.borderStyle = UITextBorderStyle.none
@@ -59,6 +61,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+    }
+    
+    // Reset image and text
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        topTextField.text = defaultTopText
+        bottomTextField.text = defaultBottomText
+        memeImageView.image = nil
     }
     
     // MARK: Keyboard shifting
@@ -121,14 +130,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Get photo from camera
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
-        self.present(imagePicker, animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     // MARK: Memeing
-    
     
     @IBAction func shareMeme(_ sender: AnyObject) {
         // Generate meme
@@ -141,8 +152,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             (s, ok, items, error) in
             self.save()
         }
-        
-        // Pass meme to ActivityViewController
         
         // Present ActivityViewController
         self.present(activityViewController, animated: true, completion: nil)
