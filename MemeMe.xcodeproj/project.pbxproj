@@ -522,6 +522,7 @@
 				D9DA279C1DBC36DF004F8C6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9DA279D1DBC36DF004F8C6E /* Build configuration list for PBXNativeTarget "MemeMeTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +531,7 @@
 				D9DA279F1DBC36DF004F8C6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9DA27A01DBC36DF004F8C6E /* Build configuration list for PBXNativeTarget "MemeMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +540,7 @@
 				D9DA27A21DBC36DF004F8C6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

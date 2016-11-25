@@ -13,7 +13,7 @@
         <!--MemeMe-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -88,7 +88,9 @@
                         <outlet property="bottomTextField" destination="Fxp-hY-ZRa" id="wKa-f9-eex"/>
                         <outlet property="cameraButton" destination="Fma-Za-tzf" id="g3O-dC-x2I"/>
                         <outlet property="memeImageView" destination="fbC-fZ-PUQ" id="jpN-y7-VVt"/>
+                        <outlet property="navBar" destination="xsH-oz-UOv" id="vu9-uX-Hoc"/>
                         <outlet property="shareButton" destination="9KH-VL-zAo" id="bkd-EG-gjf"/>
+                        <outlet property="toolBar" destination="ekp-hB-Hzv" id="Ku4-j3-MOQ"/>
                         <outlet property="topTextField" destination="To8-Nw-MVl" id="Kcg-sI-VmU"/>
                     </connections>
                 </viewController>

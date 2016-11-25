@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     
+    @IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
@@ -37,20 +39,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.bottomTextField.delegate = self.memeTextDelegate
         
         // Setup text fields
-        topTextField.defaultTextAttributes = memeTextAttributes
+        configureTextFields(textField: topTextField)
+        configureTextFields(textField: bottomTextField)
         topTextField.text = defaultTopText
-        topTextField.textAlignment = .center
-        topTextField.backgroundColor = UIColor.clear
-        topTextField.borderStyle = UITextBorderStyle.none
-        bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.text = defaultBottomText
-        bottomTextField.textAlignment = .center
-        bottomTextField.backgroundColor = UIColor.clear
-        bottomTextField.borderStyle = UITextBorderStyle.none
+
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // Hide camera button if device doesn't have camera
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         
@@ -61,6 +59,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+    }
+    
+    func configureTextFields(textField: UITextField) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.backgroundColor = UIColor.clear
+        textField.borderStyle = UITextBorderStyle.none
     }
     
     // Reset image and text
@@ -79,20 +84,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    // following suggestion found https://discussions.udacity.com/t/better-way-to-shift-the-view-for-keyboardwillshow-and-keyboardwillhide/36558
     func keyboardWillShow(notification: NSNotification) {
         if (bottomTextField.isFirstResponder) {
-            view.frame.origin.y =  getKeyboardHeight(notification: notification) * -1
+            if (UIDeviceOrientationIsLandscape(UIDevice.current.orientation)) {
+                toolBar.isHidden = true
+                view.frame.origin.y =  getKeyboardHeight(notification: notification) * -0.9
+            }
+            else {
+                view.frame.origin.y =  getKeyboardHeight(notification: notification) * -1
+            }
+        }
+        else if (topTextField.isFirstResponder) {
+            if (UIDeviceOrientationIsLandscape(UIDevice.current.orientation)) {
+                view.frame.origin.y =  getKeyboardHeight(notification: notification) * -0.2
+            }
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if (bottomTextField.isFirstResponder) {
+            toolBar.isHidden = false
             view.frame.origin.y = 0
-        }
-        
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -122,21 +137,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     // Get photo from photo picker
     @IBAction func pickImageFromAlbum(_ sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        self.present(imagePicker, animated: true, completion: nil)
+        pickAnImageFromSource(source: UIImagePickerControllerSourceType.photoLibrary)
     }
     
     // Get photo from camera
     @IBAction func pickAnImageFromCamera (sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            let imagePicker = UIImagePickerController()
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
-            imagePicker.allowsEditing = false
-            self.present(imagePicker, animated: true, completion: nil)
+             pickAnImageFromSource(source: UIImagePickerControllerSourceType.camera)
         }
+    }
+    
+    // Pick from source
+    func pickAnImageFromSource(source: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = source
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
     // MARK: Memeing
@@ -150,7 +166,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         activityViewController.popoverPresentationController?.sourceView = self.view
         activityViewController.completionWithItemsHandler = {
             (s, ok, items, error) in
-            self.save()
+            if ok {
+                self.save()
+            }
         }
         
         // Present ActivityViewController
@@ -166,8 +184,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage
     {
-        // TODO: Hide toolbar/navbar
-        
+        // Hide toolbar/navbar
+        toggleBars(areBarsHidden: true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -175,15 +193,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        // TODO: Show toolbar/navbar
+        // Show toolbar/navbar
+        toggleBars(areBarsHidden: false)
         
         return memedImage
     }
-
-    func completeSharing(activityType:String!, completed:Bool, items:[AnyObject]!, error:NSError!){
-        save()
-        self.dismiss(animated: true, completion: nil)
+    
+    func toggleBars(areBarsHidden: Bool) {
+        toolBar.isHidden = areBarsHidden
+        self.navigationController?.isNavigationBarHidden = areBarsHidden
     }
-
 }
 
