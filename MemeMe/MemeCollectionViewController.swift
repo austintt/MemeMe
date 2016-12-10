@@ -59,10 +59,8 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDelegate, 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
         let meme = self.memes[(indexPath as NSIndexPath).row]
         
-        // Set the name and image
-        //cell.memeLabel.text = "\(meme.topText) \(meme.bottomText)"
+        // Set image
         cell.memeImage?.image = meme.memedImage
-        //cell.schemeLabel.text = "Scheme: \(villain.evilScheme)"
         
         return cell
     }

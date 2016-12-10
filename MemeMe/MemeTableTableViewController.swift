@@ -17,13 +17,13 @@ class MemeTableTableViewController: UIViewController, UITableViewDataSource, UIT
         
         tableView.delegate = self
         tableView.dataSource = self
-       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // Set the data
         let applicationDelegate = UIApplication.shared.delegate as! AppDelegate
         memes = applicationDelegate.memes
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.reloadData()
     }
 
     @IBAction func addMeme(_ sender: Any) {

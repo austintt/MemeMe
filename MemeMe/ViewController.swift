@@ -43,8 +43,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         configureTextFields(textField: bottomTextField)
         topTextField.text = defaultTopText
         bottomTextField.text = defaultBottomText
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,10 +73,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // Pop view controller
     @IBAction func cancelButtonPressed(_ sender: Any) {
-//        topTextField.text = defaultTopText
-//        bottomTextField.text = defaultBottomText
-//        memeImageView.image = nil
-        
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
         }
