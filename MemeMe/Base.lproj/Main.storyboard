@@ -13,7 +13,7 @@
         <!--MemeMe-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeEditorViewController" id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -171,7 +171,13 @@
                             <constraint firstItem="1Bv-89-VYh" firstAttribute="bottom" secondItem="aNc-ww-snS" secondAttribute="top" id="sx9-ME-huF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zGZ-eX-FG6"/>
+                    <navigationItem key="navigationItem" id="zGZ-eX-FG6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6iU-KC-BxQ">
+                            <connections>
+                                <action selector="addMeme:" destination="fbY-9A-7m6" id="xie-Nt-Tmf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="1Bv-89-VYh" id="MAz-un-NFG"/>
                         <outlet property="flowLayout" destination="E7g-ht-YxD" id="mar-7Q-bMS"/>
@@ -264,7 +270,13 @@
                             <constraint firstItem="b9I-fI-F4m" firstAttribute="top" secondItem="u4a-vg-hNg" secondAttribute="top" constant="20" symbolic="YES" id="knL-ul-9sp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Uf3-t5-3j8"/>
+                    <navigationItem key="navigationItem" id="Uf3-t5-3j8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GhZ-dc-xYR">
+                            <connections>
+                                <action selector="addMeme:" destination="xTG-5r-8mr" id="CbR-A3-yQf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="b9I-fI-F4m" id="Pfy-56-oSW"/>
                     </connections>

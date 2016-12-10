@@ -42,6 +42,10 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDelegate, 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func addMeme(_ sender: Any) {
+        let editorController = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
+        self.navigationController!.pushViewController(editorController, animated: true)
+    }
    
 
     // MARK: Collection View Data Source

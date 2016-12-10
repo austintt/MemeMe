@@ -50,6 +50,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Hide tab bar
+        self.tabBarController?.tabBar.isHidden = true
+        
         // Hide camera button if device doesn't have camera
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         
@@ -60,6 +63,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func configureTextFields(textField: UITextField) {
@@ -69,11 +73,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         textField.borderStyle = UITextBorderStyle.none
     }
     
-    // Reset image and text
+    // Pop view controller
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        topTextField.text = defaultTopText
-        bottomTextField.text = defaultBottomText
-        memeImageView.image = nil
+//        topTextField.text = defaultTopText
+//        bottomTextField.text = defaultBottomText
+//        memeImageView.image = nil
+        
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
     }
     
     // MARK: Keyboard shifting

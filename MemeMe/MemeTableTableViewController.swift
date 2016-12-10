@@ -8,8 +8,6 @@
 
 import UIKit
 
-//var memes =
-
 class MemeTableTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
 
@@ -28,6 +26,11 @@ class MemeTableTableViewController: UIViewController, UITableViewDataSource, UIT
         //self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    @IBAction func addMeme(_ sender: Any) {
+        let editorController = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
+        self.navigationController!.pushViewController(editorController, animated: true)
+    }
+    
     // MARK: - Table view data source
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
