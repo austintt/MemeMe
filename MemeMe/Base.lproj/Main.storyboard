@@ -300,7 +300,7 @@
         <scene sceneID="QoB-LD-c8z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IBI-PZ-FTm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Table" id="f2X-if-nPb"/>
+                    <tabBarItem key="tabBarItem" title="Table" image="table" selectedImage="table" id="f2X-if-nPb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCg-Dd-Sfu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -319,7 +319,7 @@
         <scene sceneID="eVn-m0-lST">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kXL-nE-biV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Grid" id="JCw-sp-cac"/>
+                    <tabBarItem key="tabBarItem" title="Grid" image="collection" selectedImage="collection" id="JCw-sp-cac"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pbw-2s-zuc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -335,4 +335,8 @@
             <point key="canvasLocation" x="837.60000000000002" y="1111.3943028485758"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection" width="30" height="30"/>
+        <image name="table" width="30" height="30"/>
+    </resources>
 </document>
