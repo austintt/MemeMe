@@ -12,12 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var memes = [Meme(topText: "Top", bottomText: "Bottom", originalImage: #imageLiteral(resourceName: "oddjob"), memedImage: #imageLiteral(resourceName: "oddjob")),
+    var memes = [Meme]()
+    
+              /*  Test Data
+                [Meme(topText: "Top", bottomText: "Bottom", originalImage: #imageLiteral(resourceName: "oddjob"), memedImage: #imageLiteral(resourceName: "oddjob")),
                  Meme(topText: "Top2", bottomText: "Bottom2", originalImage: #imageLiteral(resourceName: "jaws"), memedImage: #imageLiteral(resourceName: "jaws")),
                  Meme(topText: "Top2", bottomText: "Bottom2", originalImage: #imageLiteral(resourceName: "jaws"), memedImage: #imageLiteral(resourceName: "jaws")),
                  Meme(topText: "Top2", bottomText: "Bottom2", originalImage: #imageLiteral(resourceName: "jaws"), memedImage: #imageLiteral(resourceName: "jaws")),
                  Meme(topText: "Top2", bottomText: "Bottom2", originalImage: #imageLiteral(resourceName: "jaws"), memedImage: #imageLiteral(resourceName: "jaws")),
-                 Meme(topText: "Top2", bottomText: "Bottom2", originalImage: #imageLiteral(resourceName: "jaws"), memedImage: #imageLiteral(resourceName: "jaws"))]
+                 Meme(topText: "Top2", bottomText: "Bottom2", originalImage: #imageLiteral(resourceName: "jaws"), memedImage: #imageLiteral(resourceName: "jaws"))] */
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
