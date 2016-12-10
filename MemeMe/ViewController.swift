@@ -176,13 +176,17 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         activityViewController.completionWithItemsHandler = {
             (s, ok, items, error) in
             if ok {
+                // Save the meme
                 self.save()
+                // Pop view
+                if let navController = self.navigationController {
+                    navController.popViewController(animated: true)
+                }
             }
         }
         
         // Present ActivityViewController
         self.present(activityViewController, animated: true, completion: nil)
-    
     }
     
     func save() {
