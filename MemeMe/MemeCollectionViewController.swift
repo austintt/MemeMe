@@ -31,15 +31,18 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDelegate, 
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
-        
-        // Get data
-        let applicationDelegate = UIApplication.shared.delegate as! AppDelegate
-        memes = applicationDelegate.memes
 
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Get data
+        let applicationDelegate = UIApplication.shared.delegate as! AppDelegate
+        memes = applicationDelegate.memes
+        collectionView.reloadData()
     }
 
     @IBAction func addMeme(_ sender: Any) {
