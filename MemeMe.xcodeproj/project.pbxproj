@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D90275891DFC781600E008FB /* MemeTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90275881DFC781600E008FB /* MemeTableTableViewController.swift */; };
+		D902758B1DFC782700E008FB /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902758A1DFC782700E008FB /* MemeCollectionViewController.swift */; };
+		D902758D1DFC952D00E008FB /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902758C1DFC952D00E008FB /* MemeCollectionViewCell.swift */; };
+		D902758F1DFC9C7F00E008FB /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D902758E1DFC9C7F00E008FB /* MemeDetailViewController.swift */; };
+		D90275921DFCA0B500E008FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D90275901DFCA0B500E008FB /* Main.storyboard */; };
 		D9DA27761DBC36DF004F8C6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA27751DBC36DF004F8C6E /* AppDelegate.swift */; };
 		D9DA27781DBC36DF004F8C6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA27771DBC36DF004F8C6E /* ViewController.swift */; };
-		D9DA277B1DBC36DF004F8C6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DA27791DBC36DF004F8C6E /* Main.storyboard */; };
 		D9DA277D1DBC36DF004F8C6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9DA277C1DBC36DF004F8C6E /* Assets.xcassets */; };
 		D9DA27801DBC36DF004F8C6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DA277E1DBC36DF004F8C6E /* LaunchScreen.storyboard */; };
 		D9DA278B1DBC36DF004F8C6E /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DA278A1DBC36DF004F8C6E /* MemeMeTests.swift */; };
@@ -36,10 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D90275881DFC781600E008FB /* MemeTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableTableViewController.swift; sourceTree = "<group>"; };
+		D902758A1DFC782700E008FB /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
+		D902758C1DFC952D00E008FB /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D902758E1DFC9C7F00E008FB /* MemeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
+		D90275911DFCA0B500E008FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9DA27721DBC36DF004F8C6E /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DA27751DBC36DF004F8C6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9DA27771DBC36DF004F8C6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D9DA277A1DBC36DF004F8C6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9DA277C1DBC36DF004F8C6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9DA277F1DBC36DF004F8C6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9DA27811DBC36DF004F8C6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,7 +111,11 @@
 			children = (
 				D9DA27751DBC36DF004F8C6E /* AppDelegate.swift */,
 				D9DA27771DBC36DF004F8C6E /* ViewController.swift */,
-				D9DA27791DBC36DF004F8C6E /* Main.storyboard */,
+				D90275881DFC781600E008FB /* MemeTableTableViewController.swift */,
+				D902758A1DFC782700E008FB /* MemeCollectionViewController.swift */,
+				D902758C1DFC952D00E008FB /* MemeCollectionViewCell.swift */,
+				D902758E1DFC9C7F00E008FB /* MemeDetailViewController.swift */,
+				D90275901DFCA0B500E008FB /* Main.storyboard */,
 				D9DA277C1DBC36DF004F8C6E /* Assets.xcassets */,
 				D9DA277E1DBC36DF004F8C6E /* LaunchScreen.storyboard */,
 				D9DA27811DBC36DF004F8C6E /* Info.plist */,
@@ -241,9 +253,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D90275921DFCA0B500E008FB /* Main.storyboard in Resources */,
 				D9DA27801DBC36DF004F8C6E /* LaunchScreen.storyboard in Resources */,
 				D9DA277D1DBC36DF004F8C6E /* Assets.xcassets in Resources */,
-				D9DA277B1DBC36DF004F8C6E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +284,10 @@
 				D9DA27A61DBC51BB004F8C6E /* Meme.swift in Sources */,
 				D9DA27A41DBC420C004F8C6E /* MemeTextDelegate.swift in Sources */,
 				D9DA27761DBC36DF004F8C6E /* AppDelegate.swift in Sources */,
+				D902758D1DFC952D00E008FB /* MemeCollectionViewCell.swift in Sources */,
+				D902758B1DFC782700E008FB /* MemeCollectionViewController.swift in Sources */,
+				D90275891DFC781600E008FB /* MemeTableTableViewController.swift in Sources */,
+				D902758F1DFC9C7F00E008FB /* MemeDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,10 +323,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D9DA27791DBC36DF004F8C6E /* Main.storyboard */ = {
+		D90275901DFCA0B500E008FB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D9DA277A1DBC36DF004F8C6E /* Base */,
+				D90275911DFCA0B500E008FB /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

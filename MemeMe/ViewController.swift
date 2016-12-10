@@ -49,6 +49,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         // Hide camera button if device doesn't have camera
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         
@@ -180,6 +181,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         //Create the meme
         print("Saving")
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: memeImageView.image!, memedImage: generateMemedImage())
+        
+        // Add to memes array
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage
